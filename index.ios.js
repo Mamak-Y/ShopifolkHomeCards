@@ -20,7 +20,7 @@ var PAGE_SIZE = 25;
 var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
 var REQUEST_URL = API_URL + PARAMS;
 
-var ShopifoldHomeCards = React.createClass({
+var ShopifolkHomeCards = React.createClass({
   getInitialState: function() {
     return {
       dataSource: new ListView.DataSource({
@@ -115,4 +115,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('ShopifoldHomeCards', () => ShopifoldHomeCards);
+AppRegistry.registerComponent('ShopifolkHomeCards', () => ShopifolkHomeCards);
