@@ -20,7 +20,7 @@ var PAGE_SIZE = 25;
 var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
 var REQUEST_URL = API_URL + PARAMS;
 
-var ShopifolkHomeCards = React.createClass({
+var MyFirstApp = React.createClass({
   getInitialState: function() {
     return {
       dataSource: new ListView.DataSource({
@@ -74,12 +74,12 @@ var ShopifolkHomeCards = React.createClass({
     return (
       <View style={styles.container}>
         <Image
-          source={{uri: movie.posters.thumbnail}}
+          source={{uri: 'https://github.com/Mamak-Y/ShopifolkHomeCards/blob/master/iOS/Images.xcassets/thumbs_up.png'}}
           style={styles.thumbnail}
         />
         <View style={styles.rightContainer}>
-          <Text style={styles.title}>{movie.title}</Text>
-          <Text style={styles.year}>{movie.year}</Text>
+          <Text style={styles.title}>booooooo</Text>
+          <Text style={styles.year}>boooooo</Text>
         </View>
       </View>
     );
@@ -115,4 +115,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('ShopifolkHomeCards', () => ShopifolkHomeCards);
+AppRegistry.registerComponent('MyFirstApp', () => MyFirstApp);
