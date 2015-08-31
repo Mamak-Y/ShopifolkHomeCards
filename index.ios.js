@@ -46,11 +46,11 @@ var MyFirstApp = React.createClass({
   render: function() {
     return (
       <TabBarIOS
-        tintColor="white"
-        barTintColor="darkslateblue">
+        style={styles.tabBarIOS}>
         <TabBarIOS.Item
           title="Subscriptions"
           selected={this.state.selectedTab === 'subscriptionsTab'}
+          style={styles.title}
           onPress={() => {
             this.setState({
               selectedTab: 'subscriptionsTab',
@@ -61,6 +61,7 @@ var MyFirstApp = React.createClass({
         <TabBarIOS.Item
           title="Insights"
           selected={this.state.selectedTab === 'insightsTab'}
+          style={styles.title}
           onPress={() => {
             this.setState({
               selectedTab: 'insightsTab',
@@ -86,9 +87,9 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 20,
-    marginBottom: 8,
-    marginTop: 8,
+    fontSize: 40,
+    marginBottom: 80,
+    marginTop: 80,
     textAlign: 'center',
   },
   year: {
@@ -115,6 +116,11 @@ var styles = StyleSheet.create({
     backgroundColor: '#6A85B1',
     height: 100,
   },
+  tabBarIOS: {
+    tintColor: 'white',
+    barTintColor: 'blue',
+    fontSize: 40,  
+  }
 });
 
 AppRegistry.registerComponent('MyFirstApp', () => MyFirstApp);

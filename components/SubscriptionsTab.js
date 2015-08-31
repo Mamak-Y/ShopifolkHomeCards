@@ -16,8 +16,10 @@ var {
   ScrollView,
   TabBarIOS,
   Component,
+  PickerIOS,
 } = React;
 
+var PickerItemIOS = PickerIOS.Item;
 
 var subscriptions = [
   {"name": "Dev Tools"},
@@ -58,6 +60,7 @@ class SubscriptionsTab extends Component{
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(subscriptions),
       loaded: true,
+      defaultItem: "Finance Metrics",
     });
   }
 
@@ -67,12 +70,20 @@ class SubscriptionsTab extends Component{
     }
 
     return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderSubscription}
-        style={styles.listView}
-      />
+    <PickerIOS
+      selectedValue={this.state.defaultItem}
+      onValueChange={this.subscriptionSelected.bind(this)}>
+      {subscriptions.map(this.renderSubscriptionOption)}
+    </PickerIOS>
     );
+  }
+
+  subscriptionSelected(selectedValue) {
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(subscriptions),
+      loaded: true,
+      defaultItem: selectedValue,  
+    });
   }
 
   renderLoadingView() {
@@ -85,11 +96,13 @@ class SubscriptionsTab extends Component{
     );
   }
 
-  renderSubscription(subscription) {
+  renderSubscriptionOption(subscription) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>{subscription.name}</Text>
-      </View>
+      <PickerItemIOS
+        key={subscription.name}
+        value={subscription.name}
+        label={subscription.name}
+      />
     );
   }
   
